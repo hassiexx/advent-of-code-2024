@@ -2,4 +2,4 @@
 - Language: Go
 
 # Running the code
-- Issue the `go run` command from the root folder of the repo.
+- Issue the `go run` command from within a day's solution folder.
