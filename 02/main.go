@@ -57,7 +57,7 @@ func part2() {
 		}
 	}
 
-	fmt.Println("Safe reports (part 1):", count)
+	fmt.Println("Safe reports (part 2):", count)
 }
 
 func isSafe(report []int8) bool {
