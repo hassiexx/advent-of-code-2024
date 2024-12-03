@@ -10,11 +10,42 @@ import (
 
 func main() {
 	part1()
+	part2()
 }
 
 func part1() {
+	result := calculateResult(readInput())
+
+	fmt.Println("Result (part 1):", result)
+}
+
+func part2() {
 	input := readInput()
 
+	dontSpl := strings.Split(input, "don't()")
+
+	var doInput string
+
+	// Do is enabled by default so first split substring contains ops to do.
+	doInput += dontSpl[0]
+	dontSpl = dontSpl[1:]
+
+	for _, dont := range dontSpl {
+		index := strings.Index(dont, "do()")
+
+		if index == -1 {
+			continue
+		}
+
+		doInput += dont[index:]
+	}
+
+	result := calculateResult(doInput)
+
+	fmt.Println("Result (part 2):", result)
+}
+
+func calculateResult(input string) int64 {
 	r := regexp.MustCompile("mul\\(\\d+,\\d+\\)")
 	matches := r.FindAllString(input, -1)
 
@@ -37,7 +68,7 @@ func part1() {
 		result += ln * rn
 	}
 
-	fmt.Println("Result:", result)
+	return result
 }
 
 func readInput() string {
