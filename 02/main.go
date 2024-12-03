@@ -40,18 +40,12 @@ func part2() {
 			continue
 		}
 
-		dampenIndex := 0
-		for {
+		for i := 0; i < len(report); i++ {
 			dampenedReport := slices.Clone(report)
-			dampenedReport = append(dampenedReport[:dampenIndex], dampenedReport[dampenIndex+1:]...)
+			dampenedReport = append(dampenedReport[:i], dampenedReport[i+1:]...)
 
 			if isSafe(dampenedReport) {
 				count++
-				break
-			}
-
-			dampenIndex = dampenIndex + 1
-			if dampenIndex == len(report) {
 				break
 			}
 		}
