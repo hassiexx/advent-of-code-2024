@@ -21,17 +21,14 @@ func part1() {
 	for _, update := range updates {
 		skip := false
 
+	outer:
 		for i := 0; i < len(update)-1; i++ {
-			if skip {
-				break
-			}
-
 			for j := i + 1; j < len(update); j++ {
 				rule := update[i] + "|" + update[j]
 
 				if _, ok := rules[rule]; !ok {
 					skip = true
-					break
+					break outer
 				}
 			}
 		}
