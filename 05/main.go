@@ -49,7 +49,7 @@ func part2() {
 
 		slices.SortStableFunc(update, sortFunc(rules))
 
-		mid := update[int32(math.Round(float64(len(update)/2)))]
+		mid := update[len(update)/2]
 		midI, err := strconv.ParseInt(mid, 10, 32)
 		if err != nil {
 			panic(fmt.Errorf("failed to parse page number: %w", err))
@@ -98,7 +98,7 @@ func part1Alternative() {
 			continue
 		}
 
-		mid := update[int32(math.Round(float64(len(update)/2)))]
+		mid := update[len(update)/2]
 		midI, err := strconv.ParseInt(mid, 10, 32)
 		if err != nil {
 			panic(fmt.Errorf("failed to parse page number: %w", err))
